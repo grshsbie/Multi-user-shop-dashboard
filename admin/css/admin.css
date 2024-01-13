@@ -1,0 +1,59 @@
+/* CSS Document */
+
+*{margin:0;padding:0px;font-family:'IranSans';}
+body{
+	background:#efefef;
+	direction:rtl;
+}
+#login{
+	width:320px;
+	background:#fff;
+	margin:12% auto;
+	border-radius:5px;
+	overflow:hidden;
+}
+#login .head{
+	padding:5px;
+	text-align:center;
+	color:#fff;
+	background:#00BCD4;
+}
+#login .body{padding:5px;}
+#login .body .row{
+	margin:5px;
+	padding:5px;
+}
+#login .body .row .name{font-size:14px;}
+#login .body .row .input input{
+	width:98%;
+	padding:5px;
+	border:1px solid #eee;
+	border-radius:5px;
+}
+.wait{
+	background:#fff;
+	padding:5px;
+	text-align:center;
+	display:none;
+}
+.wait .spin{
+	margin:12% auto;
+	width:36px;
+	height:36px;
+	border-radius:50%;
+	border-top:2px solid #F80D4F;
+	animation:spin 2s linear infinite;
+}
+@keyframes spin{
+	0%{transform:rotate(0deg);}
+	100%{transform:rotate(360deg);}	
+}
+#login .body .error{
+	color:#fff;
+	background:red;
+	margin:5px;
+	padding:5px;
+	font-size:14px;
+	display:none;
+	border-radius:5px;
+}
