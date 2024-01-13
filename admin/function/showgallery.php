@@ -179,6 +179,7 @@ if (isset($_REQUEST['idproduct'])) {
                 url: 'function/setdefault.php',
                 data: 'idimages=' + idimages,
                 success: function (data) {
+                    alert(data);
                     if (data == 'ok') {
                         $('.item-images').removeClass('active');
                         $('.item-images[data-id="' + idimages + '"]').addClass('active');
