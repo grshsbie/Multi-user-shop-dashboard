@@ -126,7 +126,7 @@ a{text-decoration:none;color:#000;}
 #backgroundpopup {
     background: rgba(0, 0, 0, 0.29);
     width: 100%;
-    height: 70%;
+    height: 100%;
     position: fixed;
     z-index: 9999;
     display:none;

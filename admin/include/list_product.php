@@ -68,6 +68,7 @@ $r = runsql("SELECT tbl_product.*,concat(tbl_brand.name,' - ',tbl_brand.nameen) 
                     <td>$key[sumurise]</td>
                     <td>
                     <div class=\"btn btn-info\" onClick='showgallery($key[idproduct])'>گالری تصاویر محصول</div> 
+                    <div class=\"btn btn-success\" onClick='setreview($key[idproduct])' >نقد و برسی مصحولات</div>
                     </td>
                 </tr>
             ";
@@ -103,5 +104,15 @@ $r = runsql("SELECT tbl_product.*,concat(tbl_brand.name,' - ',tbl_brand.nameen) 
                 showpopup('گالری تصاویر محصول',data);
             }
         });
+    }
+
+    function setreview(idproduct){
+        $.ajax({
+            url:'function/setreview.php' ,
+            data:'idproduct='+idproduct ,
+            success:function(data){
+                showpopup('نقد و بررسی',data);
+            }
+        })
     }
 </script>
