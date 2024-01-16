@@ -48,12 +48,12 @@ $r = runsql("SELECT tbl_product.*,concat(tbl_brand.name,' - ',tbl_brand.nameen) 
         $b = 0;
         foreach ($r as $key) {
             $b++;
-            $colors = str_replace("!" ,",", $key["colors"]);
-            if(strlen($colors) >0){
-                $c = getrecord("tbl_color","idcolor in ($colors)");
+            $colors = str_replace("!", ",", $key["colors"]);
+            if (strlen($colors) > 0) {
+                $c = getrecord("tbl_color", "idcolor in ($colors)");
                 $item = '';
                 foreach ($c as $color) {
-                   $item.='<div class="box-color" style="background:'.$color['hexadecimal_color'].'"></div>'.$color['name'];
+                    $item .= '<div class="box-color" style="background:' . $color['hexadecimal_color'] . '"></div>' . $color['name'];
                 }
             }
             echo
@@ -69,6 +69,7 @@ $r = runsql("SELECT tbl_product.*,concat(tbl_brand.name,' - ',tbl_brand.nameen) 
                     <td>
                     <div class=\"btn btn-info\" onClick='showgallery($key[idproduct])'>گالری تصاویر محصول</div> 
                     <div class=\"btn btn-success\" onClick='setreview($key[idproduct])' >نقد و برسی مصحولات</div>
+                    <div class=\"btn btn-primary\" onClick='showproperties($key[idproduct])' >نقد و برسی محصولات</div>
                     </td>
                 </tr>
             ";
@@ -96,23 +97,36 @@ $r = runsql("SELECT tbl_product.*,concat(tbl_brand.name,' - ',tbl_brand.nameen) 
 
 
 <script>
-    function showgallery(idproduct){
+    function showgallery(idproduct) {
         $.ajax({
             url: 'function/showgallery.php',
-            data:'idproduct='+idproduct,
-            success:function(data){
-                showpopup('گالری تصاویر محصول',data);
+            data: 'idproduct=' + idproduct,
+            success: function (data) {
+                showpopup('گالری تصاویر محصول', data);
             }
         });
     }
 
-    function setreview(idproduct){
+    function setreview(idproduct) {
         $.ajax({
-            url:'function/setreview.php' ,
-            data:'idproduct='+idproduct ,
-            success:function(data){
-                showpopup('نقد و بررسی',data);
+            url: 'function/setreview.php',
+            data: 'idproduct=' + idproduct,
+            success: function (data) {
+                showpopup('نقد و بررسی', data);
             }
         })
     }
+
+
+
+    function showproperties(idproduct) {
+        $.ajax({
+            url: 'function/showproperties.php',
+            data: 'idproduct=' + idproduct,
+            success: function (data) {
+                showpopup('مشاهده مشخصات محصول', data);
+            }
+        })
+    }
+
 </script>
