@@ -94,13 +94,12 @@ if (isset($_REQUEST['idproduct'])) {
             data: $('#frmproperties').serialize(),
             type: "POST",
             success: function (data) {
-                // $('#backgroundpopup .popup .body').html(data);
-                if (data == 'ok') {
+                if (data == 'ok'){
                     hideall();
-                }
-                else {
+                }else {
                     alert(data);
                 }
+
             }
         });
         return false;

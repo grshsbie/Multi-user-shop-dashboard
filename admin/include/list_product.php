@@ -129,4 +129,6 @@ $r = runsql("SELECT tbl_product.*,concat(tbl_brand.name,' - ',tbl_brand.nameen) 
         })
     }
 
+    
+
 </script>
