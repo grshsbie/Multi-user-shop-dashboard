@@ -69,7 +69,8 @@ $r = runsql("SELECT tbl_product.*,concat(tbl_brand.name,' - ',tbl_brand.nameen) 
                     <td>
                     <div class=\"btn btn-info\" onClick='showgallery($key[idproduct])'>گالری تصاویر محصول</div> 
                     <div class=\"btn btn-success\" onClick='setreview($key[idproduct])' >نقد و برسی مصحولات</div>
-                    <div class=\"btn btn-primary\" onClick='showproperties($key[idproduct])' >نقد و برسی محصولات</div>
+                    <div class=\"btn btn-primary\" onClick='showproperties($key[idproduct])' >  مشخصات </div>
+                    <div class=\"btn btn-danger\" onClick='store($key[idproduct])' >  انبارداری </div>
                     </td>
                 </tr>
             ";
@@ -128,6 +129,18 @@ $r = runsql("SELECT tbl_product.*,concat(tbl_brand.name,' - ',tbl_brand.nameen) 
             }
         })
     }
+
+
+    function store(idproduct) {
+        $.ajax({
+            url: 'function/store.php',
+            data: 'idproduct=' + idproduct,
+            success: function (data) {
+                showpopup('انبارداری', data);
+            }
+        })
+    }
+
 
     
 
